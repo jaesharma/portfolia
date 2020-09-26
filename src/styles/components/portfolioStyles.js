@@ -4,7 +4,7 @@ import { FadeInRight } from "./animations";
 export const StyledContainer = styled.div`
   flex: 1 1 0;
   background: rgba(25, 25, 27, 1);
-  height: 100vh;
+  height: 100%;
   transition: all 0.1s ease-in-out;
   animation: ${FadeInRight} 0.3s ease;
 `;
@@ -23,11 +23,17 @@ export const StyledUser = styled.div`
   align-items: center;
   transition: width 0.3s;
   overflow-x: hidden;
+  @media (max-width: ${({ theme }) => theme.breakpoint}) {
+    display: none;
+  }
 `;
 
 export const StyledPortfolio = styled.div`
-  height: 100vh;
+  height: 100%;
   background: ${({ theme }) => theme.colors.whitish};
+  @media (max-width: ${({ theme }) => theme.breakpoint}) {
+    padding-top: 4rem;
+  }
 `;
 
 export const StyledUserPic = styled.img`

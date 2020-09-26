@@ -13,6 +13,7 @@ const lightTheme = {
 	linkColor: colors.red,
 	secondary: colors.gray3,
 	hover: colors.gray5,
+	breakpoint: "42rem",
 	colors: colors,
 };
 

@@ -24,3 +24,17 @@ export const StyledHeading = styled.div`
 	font-size: 2rem;
 	color: ${({ theme }) => theme.colors.whitish};
 `;
+
+export const StyledHeaderBar = styled.div`
+	display: none;
+	background: ${({ theme }) => theme.colors.blue1};
+	position: fixed;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 4rem;
+	font-size: 2.4rem;
+	@media (max-width: ${({ theme }) => theme.breakpoint}) {
+		display: flex;
+	}
+`;

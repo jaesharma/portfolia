@@ -203,7 +203,10 @@ const EditPortfolio = ({ uid, setEditorMode }) => {
 									{Object.entries(educationField).map(
 										([key, edu], index) => {
 											return (
-												<StyledRow marginLeft="1.4rem">
+												<StyledRow
+													key={key}
+													marginLeft="1.4rem"
+												>
 													<StyledInputField
 														type="text"
 														placeholder="institute"
@@ -278,7 +281,10 @@ const EditPortfolio = ({ uid, setEditorMode }) => {
 									{Object.entries(linksField).map(
 										([platform, address], index) => {
 											return (
-												<StyledRow marginLeft="1.4rem">
+												<StyledRow
+													key={index}
+													marginLeft="1.4rem"
+												>
 													<StyledSubTitle>
 														{platform}:{" "}
 													</StyledSubTitle>
@@ -311,14 +317,10 @@ const EditPortfolio = ({ uid, setEditorMode }) => {
 											return (
 												<StyledInputField
 													type="text"
+													key={key}
 													placeholder="course"
 													value={course}
 													marginLeft="1.4rem"
-													onKeyDown={(e) => {
-														e.preventDefault();
-														if (e.key === "Enter")
-															addCourseBlock();
-													}}
 													onChange={(e) =>
 														courseChangeHandler(
 															key,
@@ -350,14 +352,10 @@ const EditPortfolio = ({ uid, setEditorMode }) => {
 											return (
 												<StyledInputField
 													type="text"
+													key={key}
 													placeholder="skills"
 													value={skill}
 													marginLeft="1.4rem"
-													onKeyDown={(e) => {
-														e.preventDefault();
-														if (e.key === "Enter")
-															addSkillBlock();
-													}}
 													onChange={(e) =>
 														skillChangeHandler(
 															index,
@@ -389,14 +387,10 @@ const EditPortfolio = ({ uid, setEditorMode }) => {
 											return (
 												<StyledInputField
 													type="text"
+													key={key}
 													placeholder="experience"
 													value={experience}
 													marginLeft="1.4rem"
-													onKeyDown={(e) => {
-														e.preventDefault();
-														if (e.key === "Enter")
-															addExpBlock();
-													}}
 													onChange={(e) =>
 														expChangeHandler(
 															index,
@@ -428,14 +422,10 @@ const EditPortfolio = ({ uid, setEditorMode }) => {
 											return (
 												<StyledInputField
 													type="text"
+													key={key}
 													placeholder="award"
 													value={award}
 													marginLeft="1.4rem"
-													onKeyDown={(e) => {
-														e.preventDefault();
-														if (e.key === "Enter")
-															addAwardBlock();
-													}}
 													onChange={(e) =>
 														awardChangeHandler(
 															key,

@@ -52,10 +52,13 @@ const PortfolioWindow = ({ setEditorMode, uid, isLoggedInUser }) => {
 									<StyledValue bold>cgpa</StyledValue>
 									<StyledValue bold>passout year</StyledValue>
 								</StyledRow>
-								{Object.values(portfolio.education).map(
-									(edu) => {
+								{Object.entries(portfolio.education).map(
+									([key, edu], index) => {
 										return (
-											<StyledRow marginLeft="1.4rem">
+											<StyledRow
+												marginLeft="1.4rem"
+												key={key}
+											>
 												<StyledValue>
 													{edu.institute
 														? edu.institute
@@ -75,7 +78,11 @@ const PortfolioWindow = ({ setEditorMode, uid, isLoggedInUser }) => {
 									}
 								)}
 							</React.Fragment>
-						)) || <StyledValue>Not Available</StyledValue>}
+						)) || (
+							<StyledValue marginLeft="1.4rem">
+								Not Available
+							</StyledValue>
+						)}
 					</StyledCols>
 				</StyledRow>
 				<StyledRow>
@@ -86,7 +93,10 @@ const PortfolioWindow = ({ setEditorMode, uid, isLoggedInUser }) => {
 								{Object.entries(portfolio.links).map(
 									([platform, address], index) => {
 										return (
-											<StyledRow marginLeft="1.4rem">
+											<StyledRow
+												key={index}
+												marginLeft="1.4rem"
+											>
 												<StyledSubTitle>
 													{platform}:{" "}
 												</StyledSubTitle>
@@ -98,7 +108,11 @@ const PortfolioWindow = ({ setEditorMode, uid, isLoggedInUser }) => {
 									}
 								)}
 							</React.Fragment>
-						)) || <StyledValue>Not Available</StyledValue>}
+						)) || (
+							<StyledValue marginLeft="1.4rem">
+								Not Available
+							</StyledValue>
+						)}
 					</StyledCols>
 				</StyledRow>
 				<StyledRow>
@@ -109,12 +123,18 @@ const PortfolioWindow = ({ setEditorMode, uid, isLoggedInUser }) => {
 								{Object.entries(portfolio.courses).map(
 									([key, course]) => {
 										return (
-											<StyledValue>{course}</StyledValue>
+											<StyledValue marginLeft="1.4rem">
+												{course}
+											</StyledValue>
 										);
 									}
 								)}
 							</React.Fragment>
-						)) || <StyledValue>Not Available</StyledValue>}
+						)) || (
+							<StyledValue marginLeft="1.4rem">
+								Not Available
+							</StyledValue>
+						)}
 					</StyledCols>
 				</StyledRow>
 				<StyledRow>
@@ -122,15 +142,24 @@ const PortfolioWindow = ({ setEditorMode, uid, isLoggedInUser }) => {
 						<StyledBlockTitle>Skills:</StyledBlockTitle>
 						{(portfolio.skills && (
 							<React.Fragment>
-								{Object.values(portfolio.skills).map(
-									(skill) => {
+								{Object.entries(portfolio.skills).map(
+									([key, skill], index) => {
 										return (
-											<StyledValue>{skill}</StyledValue>
+											<StyledValue
+												key={key}
+												marginLeft="1.4rem"
+											>
+												{skill}
+											</StyledValue>
 										);
 									}
 								)}
 							</React.Fragment>
-						)) || <StyledValue>Not Available</StyledValue>}
+						)) || (
+							<StyledValue marginLeft="1.4rem">
+								Not Available
+							</StyledValue>
+						)}
 					</StyledCols>
 				</StyledRow>
 				<StyledRow>
@@ -141,14 +170,21 @@ const PortfolioWindow = ({ setEditorMode, uid, isLoggedInUser }) => {
 								{Object.entries(portfolio.experiences).map(
 									([key, experience], index) => {
 										return (
-											<StyledValue>
+											<StyledValue
+												key={key}
+												marginLeft="1.4rem"
+											>
 												{experience}
 											</StyledValue>
 										);
 									}
 								)}
 							</React.Fragment>
-						)) || <StyledValue>Not Available</StyledValue>}
+						)) || (
+							<StyledValue marginLeft="1.4rem">
+								Not Available
+							</StyledValue>
+						)}
 					</StyledCols>
 				</StyledRow>
 				<StyledRow>
@@ -159,12 +195,21 @@ const PortfolioWindow = ({ setEditorMode, uid, isLoggedInUser }) => {
 								{Object.entries(portfolio.awards).map(
 									([key, award]) => {
 										return (
-											<StyledValue>{award}</StyledValue>
+											<StyledValue
+												key={key}
+												marginLeft="1.4rem"
+											>
+												{award}
+											</StyledValue>
 										);
 									}
 								)}
 							</React.Fragment>
-						)) || <StyledValue>Not Available</StyledValue>}
+						)) || (
+							<StyledValue marginLeft="1.4rem">
+								Not Available
+							</StyledValue>
+						)}
 					</StyledCols>
 				</StyledRow>
 			</StyledCols>

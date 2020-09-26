@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import HeaderBar from "./HeaderBar";
 import { startLogout } from "../actions/";
 import _ from "lodash";
 import {
@@ -41,6 +42,13 @@ const Portfolio = ({
 
 	return (
 		<StyledContainer>
+			<HeaderBar
+				activeWindow={activeWindow}
+				editorMode={editorMode}
+				clickHandler={clickHandler}
+				setEditorMode={setEditorMode}
+				isUser={authenticated && authData.data.id === user[0].id}
+			/>
 			{!!viewProject && (
 				<ViewProjectModal
 					project={viewProject}
@@ -91,6 +99,10 @@ const Portfolio = ({
 								projects={projects}
 								userProjects={userProjects}
 								setViewProject={setViewProject}
+								isUser={
+									authenticated &&
+									authData.data.id === user[0].id
+								}
 							/>
 						))}
 				</StyledPortfolio>

@@ -1,17 +1,17 @@
-import { LOGOUT } from "../actions/action-types.js";
+import { LOGOUT, LOGIN } from "../actions/action-types.js";
 
 const initialState = {
 	isAuthenticated: false,
 	data: {
 		id: null,
-		icon: "",
+		profile_pic: "",
 		username: "",
 	},
 };
 
 const authenticationReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case "LOGIN":
+		case LOGIN:
 			return {
 				isAuthenticated: true,
 				data: action.data,

@@ -6,6 +6,9 @@ export const StyledButtonsPlate = styled.div`
 	position: fixed;
 	right: 5%;
 	transition: all 0.3s ease-in-out;
+	@media (max-width: ${({ theme }) => theme.breakpoint}) {
+		display: none;
+	}
 `;
 
 export const StyledProfile = styled.div`
@@ -43,7 +46,11 @@ export const StyledImgIcon = styled.img`
 	opacity: 0.8;
 	${(props) => {
 		if (props.type === "edit") {
-			return "position: fixed; width: 2rem; height: 2rem; top: 2rem; right: 12rem;";
+			return "position: fixed; width: 2rem; height: 2rem; top: 2rem; right: 12rem;\
+					@media (max-width: 42rem) {\
+						display: none;\
+					};\
+			";
 		}
 	}}
 	&:hover {
@@ -78,4 +85,9 @@ export const StyledBtn = styled.div`
 		background: ${({ theme }) => theme.hover};
 	}
 	transition: all 0.3s ease-in-out;
+`;
+
+export const StyledIconBtn = styled.img`
+	height: ${(props) => props.height};
+	width: ${(props) => props.width};
 `;

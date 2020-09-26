@@ -1,20 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
+import Modal from "./Modal";
 import _ from "lodash";
-import { StyledSubContainer } from "../styles/components/additionalStyles";
+import {
+	StyledSubContainer,
+	StyledHollowDiv,
+} from "../styles/components/additionalStyles";
 import {
 	StyledTitle,
 	StyledProjectCard,
 	StyledImage,
 } from "../styles/components/projectStyles";
 
-const Projects = ({ projects, userProjects, setViewProject }) => {
+const Projects = ({ projects, userProjects, setViewProject, isUser }) => {
+	const [modalState, setModalState] = useState(false);
+
 	const clickHandler = (project) => {
 		setViewProject(project);
 	};
 
 	return (
 		<StyledSubContainer>
+			{modalState && <Modal setModalState={setModalState} />}
 			{userProjects &&
 				projects &&
 				userProjects
@@ -39,6 +46,22 @@ const Projects = ({ projects, userProjects, setViewProject }) => {
 							return null;
 						}
 					})}
+			{isUser && (
+				<StyledHollowDiv>
+					<StyledProjectCard
+						whileHover={{ scale: 1.1 }}
+						key="add more"
+						onClick={() => setModalState(true)}
+					>
+						<StyledImage
+							src="/images/addmore.png"
+							width="16rem"
+							height="14rem"
+						/>
+						<StyledTitle>add new project</StyledTitle>
+					</StyledProjectCard>
+				</StyledHollowDiv>
+			)}
 		</StyledSubContainer>
 	);
 };
