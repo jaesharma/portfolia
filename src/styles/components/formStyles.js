@@ -4,8 +4,7 @@ export const StyledHeadingBlock = styled.div`
 	width: 100%;
 	height: 1.6rem;
 	padding: 0.3rem;
-	margin: 0;
-	margin-top: 1rem;
+	margin: 0.6rem 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -23,6 +22,8 @@ export const StyledForm = styled.form`
 	&::-webkit-scrollbar {
 		display: none;
 	}
+	padding: 3rem;
+	padding-top: 1rem;
 	transition: all 0.3s ease-in-out;
 `;
 
@@ -39,7 +40,7 @@ export const StyledLabel = styled.label`
 	flex-direction: row;
 	justify-content: space-between;
 	text-align: left;
-	width: 100px;
+	width: 160px;
 	line-height: 26px;
 	margin-bottom: 10px;
 	&:input {
@@ -92,4 +93,14 @@ export const StyledInputField = styled.input`
 			return "margin-left: 1.4rem;";
 		}
 	}}
+`;
+
+export const StyledTextArea = styled.textarea`
+	background: none;
+	border: 1px solid ${({ theme }) => theme.colors.gray5};
+	outline: none;
+`;
+
+export const StyledFileInput = styled.input`
+	outline: none;
 `;

@@ -13,6 +13,8 @@ import {
 	StyledLabel,
 	StyledFileInput,
 	StyledSubmitButton,
+	StyledInputField,
+	StyledTextArea,
 } from "../styles/components/formStyles";
 
 const Modal = ({ dispatch, uid, setModalState }) => {
@@ -58,7 +60,7 @@ const Modal = ({ dispatch, uid, setModalState }) => {
 					)}
 					<StyledRow>
 						<StyledLabel htmlFor="title">Title: </StyledLabel>
-						<input
+						<StyledInputField
 							type="text"
 							size="35"
 							value={title}
@@ -72,7 +74,7 @@ const Modal = ({ dispatch, uid, setModalState }) => {
 						<StyledLabel htmlFor="description">
 							Description:{" "}
 						</StyledLabel>
-						<textarea
+						<StyledTextArea
 							rows="5"
 							cols="50"
 							name="description"
@@ -86,11 +88,12 @@ const Modal = ({ dispatch, uid, setModalState }) => {
 						<StyledLabel htmlFor="image">
 							Select an image:{" "}
 						</StyledLabel>
-						<input
+						<StyledFileInput
 							type="file"
 							name="image"
 							onChange={changeHandler}
 							accept="image/*"
+							required
 						/>
 					</StyledRow>
 					<StyledSubmitButton type="submit" value={btnText} />

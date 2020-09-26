@@ -25,7 +25,7 @@ const ViewProjectModal = ({ project, setViewProject }) => {
 				exit={{ y: "-100vh" }}
 				type="rows"
 			>
-				<StyledImage src={project.icon} width="26rem" height="22rem" />
+				<StyledImage src={project.icon} width="36rem" height="22rem" />
 				<StyledCols type="longCol">
 					<StyledProjectTitle>{project.title}</StyledProjectTitle>
 					<StyledPara size="1.4rem">{project.description}</StyledPara>

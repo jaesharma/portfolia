@@ -31,7 +31,7 @@ export const StyledViewProjectModal = styled(motion.div)`
 			case "cols":
 				return "flex-direction: column;";
 		}
-	}}
+	}};
 `;
 
 export const StyledProjectTitle = styled.h4`
