@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { history } from "../router/AppRouter";
 import Modal from "./Modal";
 import _ from "lodash";
 import {
@@ -16,7 +17,11 @@ const Projects = ({ projects, userProjects, setViewProject, isUser }) => {
 	const [modalState, setModalState] = useState(false);
 
 	const clickHandler = (project) => {
-		setViewProject(project);
+		if (window.innerWidth <= 700) {
+			history.push(`/projects/${project.pid}`);
+		} else {
+			setViewProject(project);
+		}
 	};
 
 	return (

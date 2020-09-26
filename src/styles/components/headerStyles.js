@@ -29,6 +29,8 @@ export const StyledHeaderBar = styled.div`
 	display: none;
 	background: ${({ theme }) => theme.colors.blue1};
 	position: fixed;
+	top: 0;
+	left: 0;
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;

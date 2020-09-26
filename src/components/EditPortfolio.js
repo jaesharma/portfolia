@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import database from "../firebase/config";
+import { fetchData } from "../actions/";
 import {
 	StyledSubContainer,
 	StyledCols,
@@ -16,7 +17,7 @@ import {
 } from "../styles/components/formStyles";
 import { StyledBtn } from "../styles/components/buttonStyles";
 
-const EditPortfolio = ({ uid, setEditorMode }) => {
+const EditPortfolio = ({ dispatch, uid, setEditorMode }) => {
 	let name, email, education, links, courses, skills, experiences, awards;
 	const [nameField, setNameField] = useState("");
 	const [emailField, setEmailField] = useState("");
@@ -169,7 +170,12 @@ const EditPortfolio = ({ uid, setEditorMode }) => {
 			.ref(`portfolios/${uid}`)
 			.update(updatedPortfolio)
 			.then(() => {
+				database.ref(`users/${uid}/name`).set(nameField);
+				database.ref(`users/${uid}/email`).set(emailField);
 				setEditorMode(false);
+			})
+			.then(() => {
+				dispatch(fetchData());
 			});
 	};
 

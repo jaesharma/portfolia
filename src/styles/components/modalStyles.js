@@ -9,6 +9,7 @@ export const StyledBackdrop = styled.div`
 	height: 100vh;
 	display: flex;
 	overflow: hidden;
+	position: fixed;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;

@@ -3,6 +3,12 @@ import styled from "styled-components";
 
 export const StyledTitle = styled.p`
 	font-size: 1.4rem;
+	${(props) => {
+		switch (props.type) {
+			case "page":
+				return "font-size: 3rem; font-weight: bold;margin: 0;text-decoration: underline;";
+		}
+	}}
 `;
 
 export const StyledImage = styled.img`
@@ -10,6 +16,12 @@ export const StyledImage = styled.img`
 	height: ${(props) => props.height};
 	border: none;
 	margin-left: 0.6rem;
+	${(props) => {
+		switch (props.type) {
+			case "page":
+				return "width: 100%;margin: 0;margin-top: 1rem; height: 8rem;";
+		}
+	}}
 `;
 
 export const StyledProjectCard = styled(motion.div)`

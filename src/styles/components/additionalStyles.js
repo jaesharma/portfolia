@@ -10,6 +10,22 @@ export const StyledCanvas = styled.div`
 	width: 100vw;
 	height: 100vh;
 	position: fixed;
+	overflow-wrap: break-word;
+	${(props) => {
+		switch (props.type) {
+			case "page":
+				return `
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					align-items: center;
+					background: #d8e0ed;
+					padding: 5rem .6rem 1rem .6rem;
+				`;
+		}
+	}}
+	transition: all 1s ease-in-out;
+	animation: ${FadeInRight} 0.3s ease;
 `;
 
 export const StyledMessage = styled.div`
@@ -30,7 +46,7 @@ export const StyledSubContainer = styled.div`
 	overflow-y: scroll;
 	${(props) => {
 		if (props.type === "window") {
-			return "justify-content: flex-start; padding: 2rem 1rem;";
+			return "justify-content: flex-start; padding: 2rem 1rem;overflow-wrap: break-word;padding-bottom: 4rem;scroll-behavior: smooth;";
 		}
 	}}
 	transition: all 0.1s ease-in-out;
@@ -45,7 +61,7 @@ export const StyledCols = styled.div`
 			case "longCol":
 				return "overflow-x: hidden;overflow-wrap: break-word;height: 100%;width: 60%;padding: 1rem 2rem 2rem 2rem;";
 		}
-	}}
+	}};
 `;
 
 export const StyledBlockTitle = styled.div`
@@ -81,6 +97,12 @@ export const StyledSubBlock = styled.div`
 	align-items: center;
 	background: ${(props) =>
 		props.isActive ? props.theme.colors.blue2 : "transparent"};
+	${(props) => {
+		switch (props.align) {
+			case "left":
+				return "justify-content: flex-start;";
+		}
+	}}
 `;
 
 export const StyledHollowDiv = styled.div`
